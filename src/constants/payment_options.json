@@ -1,0 +1,285 @@
+{
+  "INR": [
+    {
+      "id": 1,
+      "fiat": "INR",
+      "type": "upi",
+      "provider": "Phone pay",
+      "logo": "images/phonepay.png",
+      "fields": [
+        {
+          "label": "Name",
+          "placeholder": "Your full name",
+          "key": "ac_holder_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "UPI Id",
+          "placeholder": "xxxxxxxxxx@yyy",
+          "key": "upi_id",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Transfer tips",
+          "placeholder": "Help buyer to pay faster",
+          "key": "tips",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "fiat": "INR",
+      "type": "upi",
+      "provider": "Paytm UPI",
+      "logo": "images/paytm.png",
+      "fields": [
+        {
+          "label": "Name",
+          "placeholder": "Your full name",
+          "key": "ac_holder_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "UPI Id",
+          "placeholder": "xxxxxxxxxx@yyy",
+          "key": "upi_id",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Transfer tips",
+          "placeholder": "Help buyer to pay faster",
+          "key": "tips",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "fiat": "INR",
+      "type": "imps",
+      "provider": "IMPS",
+      "logo": "images/imps.png",
+      "fields": [
+        {
+          "label": "Name",
+          "placeholder": "Your full name",
+          "key": "ac_holder_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "A/c Number",
+          "placeholder": "Account number",
+          "key": "account_number",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Bank Name",
+          "placeholder": "Bank name",
+          "key": "bank_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "IFSC Code",
+          "placeholder": "IFSC Code",
+          "key": "ifsc_code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Transfer tips",
+          "placeholder": "Help buyer to pay faster",
+          "key": "tips",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "fiat": "INR",
+      "type": "neft",
+      "provider": "NEFT",
+      "logo": "images/NEFT.png",
+      "fields": [
+        {
+          "label": "Name",
+          "placeholder": "Your full name",
+          "key": "ac_holder_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "A/c Number",
+          "placeholder": "Account number",
+          "key": "account_number",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Bank Name",
+          "placeholder": "Bank name",
+          "key": "bank_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "IFSC Code",
+          "placeholder": "IFSC Code",
+          "key": "ifsc_code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Transfer tips",
+          "placeholder": "Help buyer to pay faster",
+          "key": "tips",
+          "type": "text",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "USD": [
+    {
+      "id": 1,
+      "fiat": "USD",
+      "type": "bank_transfer",
+      "provider": "Bank Transfer",
+      "logo": "https://cdn0.iconfinder.com/data/icons/elasto-online-store/26/00-ELASTOFONT-STORE-READY_bank-512.png",
+      "fields": [
+        {
+          "label": "Name",
+          "placeholder": "Your full name",
+          "key": "ac_holder_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "A/c Number",
+          "placeholder": "Account number",
+          "key": "account_number",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Bank Name",
+          "placeholder": "Bank name",
+          "key": "bank_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "IFSC Code",
+          "placeholder": "IFSC Code",
+          "key": "ifsc_code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Transfer tips",
+          "placeholder": "Help buyer to pay faster",
+          "key": "tips",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "fiat": "USD",
+      "type": "paypal",
+      "provider": "Paypal",
+      "logo": "images/paypal.png",
+      "fields": [
+        {
+          "label": "Name",
+          "placeholder": "Your full name",
+          "key": "ac_holder_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Paypal ID / Number",
+          "key": "paypal_number",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Transfer tips",
+          "placeholder": "Help buyer to pay faster",
+          "key": "tips",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "fiat": "USD",
+      "type": "transfer",
+      "provider": "Perfect Money",
+      "logo": "images/perfect-money.png",
+      "fields": [
+        {
+          "label": "Name",
+          "placeholder": "Your full name",
+          "key": "ac_holder_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Perfect Money ID / Number",
+          "key": "perfect_money_number",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Transfer tips",
+          "placeholder": "Help buyer to pay faster",
+          "key": "tips",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "fiat": "USD",
+      "type": "transfer",
+      "provider": "Wise",
+      "logo": "images/wise.png",
+      "fields": [
+        {
+          "label": "Name",
+          "placeholder": "Your full name",
+          "key": "ac_holder_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Wise ID / Number",
+          "key": "wise_number",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Transfer tips",
+          "placeholder": "Help buyer to pay faster",
+          "key": "tips",
+          "type": "text",
+          "required": false
+        }
+      ]
+    }
+  ]
+}
