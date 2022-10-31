@@ -11,6 +11,7 @@ import {
   Select,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+import Trade from "../../common/trade/Trade";
 const useStyles = makeStyles((theme) => ({
   background: {
     backgroundImage: `url("images/tokens.png"), linear-gradient(180deg, #ffffff 0%, #d9e8fc 100%)`,
@@ -117,26 +118,7 @@ export default function Home() {
       <Box>
         <Container style={{ marginTop: 40 }}>
           <Box className={classes.buttonWrapper}>
-            {/* <Box
-              className={classes.buttonFirst}
-              style={{
-                backgroundColor: orderType === "buy" ? "#6A55EA" : "#eeeeee",
-                color: orderType === "buy" ? "white" : "#212121",
-              }}
-              onClick={() => navigate("?type=buy")}
-            >
-              Buy
-            </Box>
-            <Box
-              className={classes.buttonSecond}
-              style={{
-                backgroundColor: orderType === "sell" ? "#6A55EA" : "#eeeeee",
-                color: orderType === "sell" ? "white" : "#212121",
-              }}
-              onClick={() => navigate("?type=sell")}
-            >
-              Sell
-            </Box> */}
+            <Trade />
           </Box>
         </Container>
       </Box>

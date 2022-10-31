@@ -21,6 +21,7 @@ import WalletButton from "./WalletButton";
 import { useInternet } from "../hooks/useInternet";
 import NetworkSelect from "./NetworkSelect";
 import TradePopup from "./popups/TradePopup";
+import { getTokenList } from "../actions/listActions";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -231,14 +232,9 @@ const Appbar = () => {
   };
   const [tradePopup, setTradePopup] = useState(initialPopupState);
 
-  // useEffect(() => {
-  //   console.log("initial state load", { userChainId, userFiat });
-  //   if (!userChainId || !userFiat) {
-  //     return;
-  //   }
-
-  //   fetchGlobalData(userChainId, userFiat);
-  // }, [userChainId, userFiat]);
+  useEffect(() => {
+    dispatch(getTokenList());
+  }, []);
 
   const { account, chainId } = useActiveWeb3React();
 

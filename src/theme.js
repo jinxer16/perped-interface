@@ -19,6 +19,17 @@ let themes = createTheme({
       main: "#6A55EA",
       light: "rgba(106, 85, 234,0.6)",
     },
+    textColors: {
+      heading: "#000000",
+      subheading: "#454545",
+      light: "#757575",
+      pbr: "rgba(224, 7, 125, 1)",
+      secondary: "#E0077D",
+      textPrimary: "#ffffff",
+      textSecondary: "#1e1e1e",
+      textLight: "#212121",
+      textDark: "#e5e5e5",
+    },
   },
   typography: {
     fontFamily: "Poppins, Roboto, sans-serif",
@@ -68,6 +79,7 @@ let themes = createTheme({
       fontSize: "1rem",
     },
   },
+
   // breakpoints: {
   //   values: {
   //     xs: 0,

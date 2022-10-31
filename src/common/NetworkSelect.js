@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { DAPP_SUPPORTED_ON_CHAINS, FALLBACK_DEFAULT_CHAIN } from "../constants";
 import { Box, FormControl, MenuItem, Select } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_USER_CHAIN } from "../actions/types";
+// import { SET_USER_CHAIN } from "../actions/types";
 import { useUserAuthentication } from "../hooks/useUserAuthentication";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,12 +43,12 @@ const NetworkSelect = () => {
   const userSelectedChain = useSelector((state) => state?.user?.chainId);
   const { logout } = useUserAuthentication();
 
-  const handleChainSelection = useCallback((chain) => {
-    console.log("select chain", chain);
-    dispatch({ type: SET_USER_CHAIN, payload: parseInt(chain) });
-    localStorage.userSelectedChain = chain;
-    logout();
-  }, []);
+  // const handleChainSelection = useCallback((chain) => {
+  //   console.log("select chain", chain);
+  //   dispatch({ type: SET_USER_CHAIN, payload: parseInt(chain) });
+  //   localStorage.userSelectedChain = chain;
+  //   logout();
+  // }, []);
 
   return (
     <Box display="flex" alignItems="center">
