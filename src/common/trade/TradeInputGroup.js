@@ -139,10 +139,14 @@ const TradeInputGroup = (props) => {
             ) : (
               ""
             )}
-            <p className={classes.labelFont}>
-              Balance:
-              {formatCurrency(fromWei(balance, currentToken?.decimals))}
-            </p>
+            {inputType === "Pay" ? (
+              <p className={classes.labelFont}>
+                Balance:
+                {formatCurrency(fromWei(balance, currentToken?.decimals))}
+              </p>
+            ) : (
+              <p className={classes.labelFont}>Levarge 15.00X</p>
+            )}
           </div>
           <div className={classes.inputRow}>
             <NumberInput
