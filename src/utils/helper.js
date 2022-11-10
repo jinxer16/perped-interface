@@ -2,6 +2,7 @@ import BigNumber from "bignumber.js";
 import moment from "moment";
 import { SupportedChainId } from "../constants/chains";
 import Numeral from "numeral";
+import axios from "axios";
 
 export const fromWei = (tokens, decimals = 18) => {
   try {
@@ -256,4 +257,38 @@ export const formattedNum = (number, usd = false, acceptNegatives = false) => {
   }
 
   return Number(parseFloat(num).toFixed(4)).toString();
+};
+
+const tokenPrices = {
+  PRPD: 0.023,
+};
+const tokenIds = {
+  MATIC: "matic-network",
+  ETH: "ethereum",
+  PRPD: "purped",
+  USDT: "tether",
+  fUSDC: "usd-coin",
+};
+export const getTokenPriceFromCoinGecko = async (token) => {
+  try {
+    const token_id = tokenIds?.[token?.symbol];
+
+    if (token_id === tokenIds.PRPD) {
+      const price = tokenPrices?.[token?.symbol];
+      return price;
+    }
+
+    const priceRes = await axios.get(
+      `https://api.coingecko.com/api/v3/simple/price?ids=${token_id}&vs_currencies=usd&include_market_cap=false&include_24hr_vol=false&include_24hr_change=false&include_last_updated_at=false`
+    );
+
+    const priceData = priceRes.data;
+    const tokenPrice = priceData?.[token_id] ? priceData[token_id].usd : "0";
+    console.log("entry price fetched ", priceRes);
+
+    return tokenPrice;
+  } catch (error) {
+    console.log("fetchTokenPrice ", { error });
+    return 0;
+  }
 };

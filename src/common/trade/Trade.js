@@ -1,9 +1,20 @@
-import { Settings } from "@mui/icons-material";
-import { Button, Card, IconButton } from "@mui/material";
+import {
+  Settings,
+  SwapVerticalCircleOutlined,
+  SwapVerticalCircleSharp,
+} from "@mui/icons-material";
+import { Box, Button, Card, IconButton } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import TradeInfo from "./TradeInfo";
 import TradeInputGroup from "./TradeInputGroup";
+import useSWR from "swr";
+import { getTokenPriceFromCoinGecko } from "../../utils/helper";
+import { getEntryPrice } from "../../actions/tradeAction";
+import { getLiquidationPrice } from "../../utils/tradeUtils";
+import { bigNumberify } from "../../utils/number";
+import { getUsd } from "../../utils/tokenUtils";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -63,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
   swapButton: {
     marginTop: 30,
-    backgroundColor: theme.palette.primary.pbr,
+    backgroundColor: theme.palette.primary.main,
     color: "white",
     width: "95%",
     textTransform: "none",
@@ -165,6 +176,8 @@ export default function Trade() {
   const [token1Value, setToken1Value] = useState("");
   const [token2Value, setToken2Value] = useState("");
 
+  const dispatch = useDispatch();
+
   const tokens = useSelector((state) => state?.list.tokens);
 
   const onToken1Select = async (token) => {
@@ -175,6 +188,11 @@ export default function Trade() {
     setToken2(token);
   };
 
+  const handleSwapInputs = () => {
+    const tokenSelected1 = selectedToken1;
+    setToken1(selectedToken2);
+    setToken2(tokenSelected1);
+  };
   // token 1 input change
   const onToken1InputChange = async (tokens) => {
     setToken1Value(tokens);
@@ -219,6 +237,16 @@ export default function Trade() {
     // });
   };
 
+  // fetch entry price from coingecko
+
+  useEffect(() => {
+    if (!selectedToken2?.symbol) {
+      return;
+    }
+
+    dispatch(getEntryPrice(selectedToken2));
+  }, [selectedToken2]);
+
   useEffect(() => {
     if (tokens?.length === 0) {
       return;
@@ -227,6 +255,38 @@ export default function Trade() {
     setToken1(tokens?.[0]);
     setToken2(tokens?.[1]);
   }, [tokens]);
+
+  //:todo fix 1
+  const toUsdMax = getUsd(
+    toAmount,
+    toTokenAddress,
+    true,
+    infoTokens,
+    orderOption,
+    triggerPriceUsd
+  );
+
+  const existingPosition = undefined; //: setup existing position setup
+  const hasExistingPosition = false;
+
+  const liquidationPrice = getLiquidationPrice({
+    isLong,
+    size: hasExistingPosition ? existingPosition.size : bigNumberify(0),
+    collateral: hasExistingPosition
+      ? existingPosition.collateral
+      : bigNumberify(0),
+    averagePrice: nextAveragePrice,
+    entryFundingRate: hasExistingPosition
+      ? existingPosition.entryFundingRate
+      : bigNumberify(0),
+    cumulativeFundingRate: hasExistingPosition
+      ? existingPosition.cumulativeFundingRate
+      : bigNumberify(0),
+    sizeDelta: toUsdMax,
+    collateralDelta: fromUsdMin,
+    increaseCollateral: true,
+    increaseSize: true,
+  });
 
   return (
     <Card elevation={20} className={classes.card}>
@@ -255,14 +315,15 @@ export default function Trade() {
 
         <IconButton className={classes.iconButton}>
           {" "}
-          {/* <SwapVertIcon
-            fontSize="default"
-            className={[
-              classes.swapIcon,
-              rotate ? classes.rotate1 : classes.rotate2,
-            ].join(" ")}
+          <SwapVerticalCircleSharp
+            fontSize="large"
+            color="primary"
+            // className={[
+            //   classes.swapIcon,
+            //   rotate ? classes.rotate1 : classes.rotate2,
+            // ].join(" ")}
             onClick={handleSwapInputs}
-          /> */}
+          />
         </IconButton>
         <TradeInputGroup
           inputType="Long"
@@ -275,11 +336,11 @@ export default function Trade() {
           currenryBalance={"0.0"}
         />
 
-        <Button
-          //   disabled={currentSwapStatus.disabled}
-          className={classes.swapButton}
-          onClick={() => {}}
-        >
+        <Box width={"90%"} mt={1} mb={1}>
+          <TradeInfo />
+        </Box>
+
+        <Button className={classes.swapButton} onClick={() => {}}>
           Open Long
         </Button>
       </div>

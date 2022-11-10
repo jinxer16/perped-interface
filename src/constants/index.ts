@@ -27,7 +27,26 @@ export const TOKEN_ADDRESS = {
     56: "",
     97: "0x84a73728582591a1aa90a25a07f4f636331d6c1e",
   },
+  PRPD: {
+    137: "0x3D172120313DfaC87D6F79d9e0cCF95D60C13Ad0",
+  },
+  fUSDC: {
+    137: "0x2e0Dd1E3E578c8BC878D10D987315D9395513D99",
+  },
 };
+
+export const Router = "0xa582f436C00016077c30Bef35b08273EabFF22d7";
+export const Treasury = "0x39ec1C5902389De1A7Fa63258E2Bb9f67d35465c";
+export const AirnodeRrpV0 = "0xf9da75Bd0a1e2c558Dc455CE2f14fd4Ab76f599e";
+export const Requester = "0x9570850c50D710AbE49BA3069BBD3256DE48e58B";
+export const TradingRRP = "0x5736eE63099ED08D209e218452aD9f4eDeB20Bc3";
+export const Pool = "0xE37b4D84283B7F5588A5175AD40704d56d0D87De";
+export const PoolUSDC = "0xbf935a95DE70060c35C765955C313c9fBeA7836f";
+export const PoolPRPD = "0xBA20010488C3F860cB897056e991abf9D4bc4FB5";
+export const PoolRewards = "0x018FeE5f66DF653F855D2DCcD1A2D2B164D6FaB2";
+export const PoolRewardsUSDC = "0xC523784f200De514Df69EF1E25F278baD8145573";
+export const PRPDRewards = "0x2b3BD150F69c241FBDfc407E76A16f8400244a20";
+export const PRPDRewardsUSDC = "0x71beEeCA4B7Ad79e3b5B192c09F325E784Ccd430";
 
 export const WETH_ADDRESS = {
   1: "",
@@ -35,33 +54,6 @@ export const WETH_ADDRESS = {
   5: "0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6",
   56: "",
   97: "0xae13d989dac2f0debff460ac112a837c89baa7cd", // bnb for bsc chain
-};
-// tahir:   "0x0A55Cfdc230d9B7B161f77842b899c4D0A14EcD9"
-//henry:  0xC76Eebd14F1E5BAe5e70F349d08e54c5E7df6516
-
-// claim PolkaBridgeFaucet contract Addresses
-export const FAUCET_ADDRESSES: { [index: number]: string } = {
-  1: "",
-  5: "0x08114Eda0FD31B2D71586260Eb01DB064E1e8624",
-  1981: "0x08114Eda0FD31B2D71586260Eb01DB064E1e8624",
-  56: "",
-  97: "0x252F9d11d193820997D38298346B381f53a54B5e",
-};
-
-export const P2P_ADDRESSES: { [index: number]: string } = {
-  1: "",
-  4: "0x55C4F673BAb13F3Ae1aBe6B8Fd3b3e83A70B8691",
-  5: "0x44A8D5E1F533438c0d017021C90347B5a5278ABf",
-  56: "",
-  97: "0xD64c0FBEe803AfB35ed721a3E67261e1a41f86c5",
-};
-
-export const VALIDATOR_CONTRACT: { [index: number]: string } = {
-  1: "",
-  4: "0x8D200a1466407adFF3Ac5b3BbBBa1c283A4f2DD5",
-  5: "0x44FFBB6126774F45B2e73c84d43bBd951a992198",
-  56: "",
-  97: "0xEa73332604740B078495614B3d08BA442Eea9A97",
 };
 
 export const CONNECTOR_TYPE = {
@@ -71,9 +63,6 @@ export const CONNECTOR_TYPE = {
 };
 
 export const NETWORK_TYPE = 1; // testing:1, mainnet:0
-export const SUPPORTED_PAYMENT_METHODS = ["upi", "BANK TRANSFER"];
-
-export const TRADE_FEE = 1;
 
 export const NATIVE_TOKENS = {
   4: {
@@ -104,207 +93,4 @@ export const NATIVE_TOKENS = {
     address: "",
     chainId: 137,
   },
-};
-
-export const GLOBAL_FIAT_LIST = [
-  {
-    added_at: "2022-06-20T11:43:48.690Z",
-    _id: "6263a50d54f64766e549a621",
-    country_name: "United States",
-    fiat: "USD",
-    fiat_label: "US doller",
-    flag_url: "images/USD.png",
-  },
-  {
-    added_at: "2022-06-20T11:43:48.690Z",
-    _id: "6267e54c3c805016884e50f9",
-    country_name: "India",
-    fiat: "INR",
-    fiat_label: "Indian rupees",
-    flag_url: "images/INR.png",
-  },
-];
-
-// mongodb document snapshot
-export const GLOBAL_TOKEN_LIST: { [index: number]: Array<any> } = {
-  1: [],
-  4: [
-    {
-      added_at: "2022-04-23T06:59:34.052Z",
-      _id: "6267ce443c805016884e50f7",
-      name: "Polkabridge",
-      symbol: "PBR",
-      address: "0xf6c9FF0543f932178262DF8C81A12A3132129b51",
-      decimals: 18,
-      __v: 0,
-      active: true,
-      chainId: 4,
-      logo: "https://assets.coingecko.com/coins/images/13744/small/symbol-whitebg200x200.png?1611377553",
-    },
-    {
-      added_at: "2022-04-23T06:59:34.052Z",
-      _id: "6290cb40ff6247480e2261bd",
-      name: "US Tether",
-      symbol: "USDT",
-      address: "0xe687b0a94c3A20540552d981cD311a6812759dF8",
-      decimals: 6,
-      __v: 0,
-      active: true,
-      logo: "https://assets.coingecko.com/coins/images/325/small/Tether-logo.png?1598003707",
-      chainId: 4,
-    },
-    {
-      added_at: "2022-04-23T06:59:34.052Z",
-      _id: "6290cc4dff6247480e2261be",
-      name: "Ethereum",
-      symbol: "ETH",
-      address: "0xc778417e063141139fce010982780140aa0cd5ab",
-      decimals: 18,
-      __v: 0,
-      active: true,
-      logo: "https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880",
-      chainId: 4,
-    },
-  ],
-  5: [
-    {
-      _id: "633ab83318b3d7e397763a49",
-      added_at: {
-        $date: {
-          $numberLong: "1650697174052",
-        },
-      },
-      name: "Polkabridge",
-      symbol: "PBR",
-      address: "0x89f01bc9865324583380d8d7ed08b8046bffd7fd",
-      decimals: 18,
-      __v: 0,
-      active: true,
-      chainId: 5,
-      logo: "https://assets.coingecko.com/coins/images/13744/small/symbol-whitebg200x200.png?1611377553",
-    },
-    {
-      _id: "633ab84818b3d7e397763a4a",
-      added_at: {
-        $date: {
-          $numberLong: "1650697174052",
-        },
-      },
-      name: "US Tether",
-      symbol: "USDT",
-      address: "0x1cfd6813a59d7b90c41dd5990ed99c3bf2eb8f55",
-      decimals: 6,
-      __v: 0,
-      active: true,
-      logo: "https://assets.coingecko.com/coins/images/325/small/Tether-logo.png?1598003707",
-      chainId: 5,
-    },
-    {
-      _id: "633ab86f18b3d7e397763a4b",
-      added_at: {
-        $date: {
-          $numberLong: "1650697174052",
-        },
-      },
-      name: "Ethereum",
-      symbol: "ETH",
-      address: "0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6",
-      decimals: 18,
-      __v: 0,
-      active: true,
-      logo: "https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880",
-      chainId: 5,
-    },
-  ],
-  56: [
-    {
-      added_at: "2022-04-23T06:57:12.957Z",
-      _id: "6263a34c3f3536307ddd741a",
-      name: "BNB Token",
-      symbol: "BNB",
-      address: "0x094616F0BdFB0b526bD735Bf66Eca0Ad254ca81F",
-      chainId: 97,
-      decimals: 18,
-      __v: 0,
-      active: true,
-      logo: "https://assets.coingecko.com/coins/images/12591/small/binance-coin-logo.png?1600947313",
-    },
-    {
-      added_at: "2022-04-23T06:59:34.052Z",
-      _id: "6263a3e538fd8c30a7c4d8b8",
-      name: "BUSD Token",
-      symbol: "BUSD",
-      address: "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-      chainId: 97,
-      decimals: 18,
-      __v: 0,
-    },
-    {
-      added_at: "2022-04-23T06:59:34.052Z",
-      _id: "6263a3e638fd8c30a7c4d8c1",
-      name: "Tether USD",
-      symbol: "USDT",
-      address: "0x496aA3FE91d239469a797379986948d94e893494",
-      chainId: 97,
-      decimals: 18,
-      __v: 0,
-      logo: "https://assets.coingecko.com/coins/images/325/small/Tether-logo.png?1598003707",
-    },
-    {
-      added_at: "2022-04-23T06:59:34.052Z",
-      _id: "63246e6eaa980102011a42d1",
-      name: "Polkabridge",
-      symbol: "PBR",
-      address: "0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6",
-      chainId: 97,
-      decimals: 18,
-      __v: 0,
-      logo: "https://assets.coingecko.com/coins/images/13744/small/symbol-whitebg200x200.png?1611377553",
-    },
-  ],
-  97: [
-    {
-      added_at: "2022-04-23T06:57:12.957Z",
-      _id: "6263a34c3f3536307ddd741a",
-      name: "BNB Token",
-      symbol: "BNB",
-      address: "0xae13d989dac2f0debff460ac112a837c89baa7cd",
-      chainId: 97,
-      decimals: 18,
-      __v: 0,
-      active: true,
-      logo: "https://assets.coingecko.com/coins/images/12591/small/binance-coin-logo.png?1600947313",
-    },
-    {
-      added_at: "2022-04-23T06:59:34.052Z",
-      _id: "6263a3e538fd8c30a7c4d8b8",
-      name: "BUSD Token",
-      symbol: "BUSD",
-      address: "0x84a73728582591a1aa90a25a07f4f636331d6c1e",
-      chainId: 97,
-      decimals: 18,
-      logo: "https://s2.coinmarketcap.com/static/img/coins/64x64/4687.png",
-      active: true,
-      __v: 0,
-    },
-    {
-      added_at: "2022-04-23T06:59:34.052Z",
-      _id: "63246e6eaa980102011a42d1",
-      name: "Polkabridge",
-      symbol: "PBR",
-      address: "0xcdc22234e41a94ef3c028e0208b0f55cb63a3008",
-      chainId: 97,
-      decimals: 18,
-      __v: 0,
-      logo: "https://assets.coingecko.com/coins/images/13744/small/symbol-whitebg200x200.png?1611377553",
-      active: true,
-    },
-  ],
-};
-
-export const TRADE_EVENTS = {
-  buyer_joined: "buyer_joined",
-  seller_joined: "seller_joined",
-  seller_transfered: "seller_transfered",
-  buyer_paid: "buyer_paid",
 };

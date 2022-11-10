@@ -4,13 +4,10 @@ import { getContract } from "../utils/contractUtils";
 import MulticallABI from "../contracts/abi/multicall.json";
 import useActiveWeb3React from "./useActiveWeb3React";
 import ERC20_ABI from "../contracts/abi/erc20.json";
-import P2P_ABI from "../contracts/abi/p2p.json";
-import FAUCET_ABI from "../contracts/abi/faucet.json";
-import {
-  P2P_ADDRESSES,
-  FAUCET_ADDRESSES,
-  FALLBACK_DEFAULT_CHAIN,
-} from "../constants";
+import { FALLBACK_DEFAULT_CHAIN, Pool, Router, Treasury } from "../constants";
+import ROUTER_ABI from "../contracts/abi/router.json";
+import TREASURY_ABI from "../contracts/abi/treasury.json";
+import POOL_ABI from "../contracts/abi/pool.json";
 
 import { MULTICALL_ADDRESS } from "../constants/chains";
 
@@ -66,26 +63,26 @@ export function useTokenContract(
   return useContract(tokenAddress, ERC20_ABI, withSignerIfPossible);
 }
 
-export function useP2pContract(
+export function useRouterContract(
   withSignerIfPossible?: boolean
 ): Contract | null {
   const { chainId } = useActiveWeb3React();
 
-  return useContract(
-    P2P_ADDRESSES[!chainId ? FALLBACK_DEFAULT_CHAIN : chainId],
-    P2P_ABI,
-    withSignerIfPossible
-  );
+  return useContract(Router, ROUTER_ABI, withSignerIfPossible);
 }
 
-export function useFaucetContract(
+export function useTreasuryContract(
   withSignerIfPossible?: boolean
 ): Contract | null {
   const { chainId } = useActiveWeb3React();
 
-  return useContract(
-    FAUCET_ADDRESSES[!chainId ? FALLBACK_DEFAULT_CHAIN : chainId],
-    FAUCET_ABI,
-    withSignerIfPossible
-  );
+  return useContract(Treasury, TREASURY_ABI, withSignerIfPossible);
+}
+
+export function usePoolContract(
+  withSignerIfPossible?: boolean
+): Contract | null {
+  const { chainId } = useActiveWeb3React();
+
+  return useContract(Pool, POOL_ABI, withSignerIfPossible);
 }

@@ -3,6 +3,9 @@ export const GET_ERRORS = "GET_ERRORS";
 //list reducers
 export const GET_TOKENS = "GET_TOKENS";
 
+//trade
+export const GET_ENTRY_PRICE = "GET_ENTRY_PRICE";
+
 // trade reducers
 export const GET_PROFILE = "GET_PROFILE";
 export const UPDATE_PAYMENTS = "UPDATE_PAYMENTS";
